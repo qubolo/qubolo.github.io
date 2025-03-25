@@ -2097,7 +2097,7 @@ input, select, textarea {
 			text-transform: uppercase;
 			color: #fff;
 			font-size: 2em;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.05em;
 		}
 
 		#logo p {
@@ -2114,6 +2114,7 @@ input, select, textarea {
 		    font-family: 'Montserrat', sans-serif;
 			font-style: italic;
 			font-weight: 900;
+			letter-spacing: 0.05em;
 		}
 
 /* Nav */
