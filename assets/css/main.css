@@ -2993,3 +2993,11 @@ input, select, textarea {
 
 }
 	}
+
+/* Custom Font Class: Montserrat Black Italic */
+.montserrat-black-italic {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: italic;
+}
