@@ -2112,6 +2112,8 @@ input, select, textarea {
 
 		#logo h1 a {
 		    font-family: 'Montserrat', sans-serif;
+			font-style: italic;
+			font-weight: 700;
 		}
 
 /* Nav */
