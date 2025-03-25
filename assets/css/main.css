@@ -2982,5 +2982,8 @@ input, select, textarea {
 						#copyright ul li:first-child {
 							margin-top: 0;
 						}
-
+		/* Custom Font Overrides */
+		#logo h1 a {
+		    font-family: 'Montserrat', sans-serif;
+}
 	}
