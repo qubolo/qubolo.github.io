@@ -73,6 +73,8 @@ input, select, textarea {
 	appearance: none;
 }
 
+
+
 /* Basic */
 
 	@-ms-viewport {
@@ -2108,6 +2110,10 @@ input, select, textarea {
 			font-size: 0.9em;
 		}
 
+		#logo h1 a {
+		    font-family: 'Montserrat', sans-serif;
+		}
+
 /* Nav */
 
 	#nav {
@@ -2982,8 +2988,6 @@ input, select, textarea {
 						#copyright ul li:first-child {
 							margin-top: 0;
 						}
-		/* Custom Font Overrides */
-		#logo h1 a {
-		    font-family: 'Montserrat', sans-serif;
+
 }
 	}
