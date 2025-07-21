@@ -22,17 +22,26 @@
             <nav id="nav">
                 <ul>
                     <li class="current"><a href="index.html">Start</a></li>
-                    <li><a href="#">O nas</a></li>
-                    <li><a href="#">Treningi</a></li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="about.html">O nas</a></li>
+                    <li><a href="treningi.html">Treningi</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
         </section>
 
         <!-- Intro -->
-        <section id="intro" class="wrapper style1">
-            <div class="title">Wprowadzenie</div>
-            <div class="container">
+        <!-- Intro Section with Video Background & Overlay -->
+        <section id="intro" class="wrapper style1" style="position: relative; overflow: hidden;">
+            <!-- Video Background -->
+            <video autoplay loop muted playsinline id="heroVideo" style="min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; z-index: -2;">
+                <source src="assets/videos/krav-maga-bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Semi-transparent Overlay -->
+            <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); z-index: -1;"></div>
+
+            <div class="title" style="position: relative; z-index: 1;">Wprowadzenie</div>
+            <div class="container" style="position: relative; z-index: 1;">
                 <p class="style1">Witaj w sekcji Krav Maga IKMF w Krakowie!</p>
                 <p class="style2">
                     Nazywam się Jakub Pachołek i prowadzę zajęcia z samoobrony oparte na systemie izraelskiej Krav Maga.
