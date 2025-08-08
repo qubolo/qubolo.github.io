@@ -1,225 +1,339 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
-    <title>IKMF Krav Maga Kraków</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krav Maga Kraków</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== Global ===== */
+    :root { --header-h: 72px; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Roboto", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      background: #000;
+      color: #e5e7eb;
+    }
+    a { transition: color .2s ease; }
+
+    /* Anchor offset for sticky header */
+    .anchor-section { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+    /* ===== Hero ===== */
+    .hero-bg {
+      background: url("images/banner2.jpg") center / cover no-repeat;
+    }
+
+    /* ===== Utility Animations ===== */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.appear { opacity: 1; transform: translateY(0); }
+
+    /* ===== FAQ ===== */
+    details.faq-item { background:#1f2937; border-radius: .75rem; margin-bottom: 1rem; overflow: hidden; }
+    summary.faq-question { list-style:none; display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; font-weight:700; font-size:1.125rem; cursor:pointer; user-select:none; transition: background .2s; }
+    summary.faq-question:hover { background: rgba(225,29,72,.08); }
+    summary::-webkit-details-marker{ display:none; }
+    .plus-icon{ width:1.5rem; height:1.5rem; transition: transform .2s; }
+    details[open] .plus-icon{ transform: rotate(45deg); }
+    .faq-answer-content{ padding:1rem 1.25rem; background:#374151; color:#d1d5db; border-top:1px solid #4b5563; white-space:pre-line; }
+  </style>
 </head>
-<body class="homepage is-preload">
-    <div id="page-wrapper">
-
-        <!-- Header -->
-        <section id="header" class="wrapper">
-            <div id="logo">
-                <h1><a href="index.html" class="montserrat-black-italic">IKMF Krav Maga Kraków</a></h1>
-                <p>Realna samoobrona dla każdego</p>
-            </div>
-
-            <nav id="nav">
-                <ul>
-                    <li class="current"><a href="index.html">Start</a></li>
-                    <li><a href="about.html">O nas</a></li>
-                    <li><a href="treningi.html">Treningi</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
-            </nav>
-        </section>
-
-        <!-- Intro -->
-        <!-- Intro Section with Video Background & Overlay -->
-        <section id="intro" class="wrapper style1" style="position: relative; overflow: hidden;">
-            <!-- Video Background -->
-            <video autoplay loop muted playsinline id="heroVideo" style="min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; z-index: -2;">
-                <source src="assets/videos/krav-maga-bg.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <!-- Semi-transparent Overlay -->
-            <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); z-index: -1;"></div>
-
-            <div class="title" style="position: relative; z-index: 1;">Wprowadzenie</div>
-            <div class="container" style="position: relative; z-index: 1;">
-                <p class="style1">Witaj w sekcji Krav Maga IKMF w Krakowie!</p>
-                <p class="style2">
-                    Nazywam się Jakub Pachołek i prowadzę zajęcia z samoobrony oparte na systemie izraelskiej Krav Maga.
-                </p>
-                <p class="style3">
-                    Uczymy praktycznych i skutecznych technik samoobrony, niezależnie od wieku, płci czy poziomu sprawności fizycznej. Dołącz do nas i zadbaj o swoje bezpieczeństwo.
-                </p>
-                <ul class="actions">
-                    <li><a href="#main" class="button style3 large">Zobacz więcej</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Main -->
-        <section id="main" class="wrapper style2">
-            <div class="title">Dlaczego Krav Maga?</div>
-            <div class="container">
-
-                <a href="#" class="image featured">
-                    <img src="images/pic01.jpg" alt="Trening Krav Maga" />
-                </a>
-
-                <section id="features">
-                    <header class="style1">
-                        <h2>Bezpieczeństwo. Pewność siebie. Skuteczność.</h2>
-                        <p>Krav Maga to system samoobrony wykorzystywany przez służby na całym świecie. U nas nauczysz się jak reagować w sytuacjach zagrożenia.</p>
-                    </header>
-                    <div class="feature-list">
-                        <div class="row">
-                            <div class="col-6 col-12-medium">
-                                <section>
-                                    <h3 class="icon fa-fist-raised">Skuteczna samoobrona</h3>
-                                    <p>Uczymy jak bronić się w realnych sytuacjach: napaść, duszenie, atak nożem czy zagrożenie w tłumie.</p>
-                                </section>
-                            </div>
-                            <div class="col-6 col-12-medium">
-                                <section>
-                                    <h3 class="icon fa-user-shield">Budowanie pewności siebie</h3>
-                                    <p>Poprzez regularne treningi zyskasz większą świadomość ciała, szybsze reakcje i odporność na stres.</p>
-                                </section>
-                            </div>
-                            <div class="col-6 col-12-medium">
-                                <section>
-                                    <h3 class="icon fa-users">Trening dla każdego</h3>
-                                    <p>Zajęcia prowadzone są w przyjaznej atmosferze, dostosowane do poziomu grupy – od początkujących do zaawansowanych.</p>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
-
-        <!-- Highlights -->
-        <section id="highlights" class="wrapper style3">
-            <div class="title">Lokalizacja i Oferta</div>
-            <div class="container">
-                <div class="row aln-center">
-                    <div class="col-4 col-12-medium">
-                        <section class="highlight">
-                            <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-                            <h3><a href="#">Treningi w centrum Krakowa</a></h3>
-                            <p>Nasze zajęcia odbywają się w nowoczesnej sali treningowej w dogodnej lokalizacji. Sprawdź grafik i przyjdź na trening próbny!</p>
-                            <ul class="actions">
-                                <li><a href="#" class="button style1">Dowiedz się więcej</a></li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <section class="highlight">
-                            <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-                            <h3><a href="#">Profesjonalna kadra</a></h3>
-                            <p>Instruktorzy IKMF to osoby z doświadczeniem i międzynarodowymi certyfikatami, gotowe przekazać Ci wiedzę w bezpieczny sposób.</p>
-                            <ul class="actions">
-                                <li><a href="#" class="button style1">Poznaj nas</a></li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <section class="highlight">
-                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-                            <h3><a href="#">Zajęcia indywidualne</a></h3>
-                            <p>Oferujemy również indywidualne sesje treningowe dopasowane do Twoich potrzeb i możliwości czasowych.</p>
-                            <ul class="actions">
-                                <li><a href="#" class="button style1">Zarezerwuj termin</a></li>
-                            </ul>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <section id="footer" class="wrapper">
-            <div class="title">Kontakt</div>
-            <div class="container">
-                <header class="style1">
-                    <h2>Masz pytania? Skontaktuj się ze mną!</h2>
-                    <p>Zapraszam na treningi Krav Maga w Krakowie – Jakub Pachołek</p>
-                </header>
-                <div class="row">
-                    <div class="col-6 col-12-medium">
-                        <section>
-                            <form method="post" action="#">
-                                <div class="row gtr-50">
-                                    <div class="col-6 col-12-small">
-                                        <input type="text" name="name" id="contact-name" placeholder="Imię" />
-                                    </div>
-                                    <div class="col-6 col-12-small">
-                                        <input type="text" name="email" id="contact-email" placeholder="Email" />
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" id="contact-message" placeholder="Wiadomość" rows="4"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <ul class="actions">
-                                            <li><input type="submit" class="style1" value="Wyślij" /></li>
-                                            <li><input type="reset" class="style2" value="Wyczyść" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
-                    </div>
-                    <div class="col-6 col-12-medium">
-                        <section class="feature-list small">
-                            <div class="row">
-                                <div class="col-6 col-12-small">
-                                    <section>
-                                        <h3 class="icon solid fa-home">Adres</h3>
-                                        <p>
-                                            IKMF Krav Maga Kraków<br />
-                                            ul. Przykładowa 12<br />
-                                            31-000 Kraków
-                                        </p>
-                                    </section>
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <section>
-                                        <h3 class="icon solid fa-comment">Social</h3>
-                                        <p>
-                                            <a href="#">facebook.com/kravmagakrakow</a><br />
-                                            <a href="#">instagram.com/kravmaga_jakub</a>
-                                        </p>
-                                    </section>
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <section>
-                                        <h3 class="icon solid fa-envelope">Email</h3>
-                                        <p><a href="mailto:jakub.kravmaga@gmail.com">jakub.kravmaga@gmail.com</a></p>
-                                    </section>
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <section>
-                                        <h3 class="icon solid fa-phone">Telefon</h3>
-                                        <p>+48 600 000 000</p>
-                                    </section>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                <div id="copyright">
-                    <ul>
-                        <li>&copy; Jakub Pachołek - IKMF Krav Maga Kraków</li>
-                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="bg-gray-900/70 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20" style="height:var(--header-h)">
+    <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+      <a href="#" class="text-xl md:text-2xl font-black tracking-wide">KRAV MAGA KRAKÓW</a>
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#grafik" class="hover:text-red-500">Grafik</a>
+        <a href="#cennik" class="hover:text-red-500">Cennik</a>
+        <a href="#o-nas" class="hover:text-red-500">O&nbsp;nas</a>
+        <a href="#faq" class="hover:text-red-500">FAQ</a>
+        <a href="#kontakt" class="hover:text-red-500">Kontakt</a>
+      </div>
+      <!-- Burger -->
+      <button id="mobile-menu-button" class="md:hidden" aria-label="Otwórz menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
     </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="#grafik" class="block hover:text-red-500">Grafik</a>
+      <a href="#cennik" class="block hover:text-red-500">Cennik</a>
+      <a href="#o-nas" class="block hover:text-red-500">O&nbsp;nas</a>
+      <a href="#faq" class="block hover:text-red-500">FAQ</a>
+      <a href="#kontakt" class="block hover:text-red-500">Kontakt</a>
+    </div>
+  </nav>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+  <!-- HERO -->
+  <header class="hero-bg relative h-[78vh] md:h-[85vh] grid place-items-center">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-10 text-center px-6 fade-in max-w-3xl">
+      <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-tight">Krav Maga Kraków</h1>
+      <p class="text-base md:text-2xl mt-4 md:mt-6 mb-8 md:mb-10 text-gray-300">Efektywny system samoobrony dla każdego. Dołącz do nas i zyskaj pewność siebie.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#cennik" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg">Pierwsze zajęcia GRATIS!</a>
+        <a href="#grafik" class="inline-block bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg">Zobacz grafik</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16 md:py-20 space-y-24 md:space-y-32">
+    <!-- ABOUT -->
+    <section id="o-nas" class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Czym jest Krav Maga?</h2>
+      <div class="prose prose-invert mx-auto max-w-3xl">
+        <p>Krav Maga to izraelski system samoobrony i walki wręcz, opracowany z myślą o szybkim szkoleniu żołnierzy. Dziś wykorzystywany jest przez wojsko, policję i służby specjalne na całym świecie. Jego skuteczność opiera się na prostych, intuicyjnych ruchach i realistycznych scenariuszach zagrożeń.</p>
+        <p>Nasze treningi są dostosowane do każdego, bez względu na wiek czy kondycję fizyczną. Już po kilku zajęciach nauczysz się, jak reagować w sytuacjach niebezpiecznych. Uczymy także, jak wykorzystać przedmioty codziennego użytku do obrony własnej.</p>
+        <p>Krav Maga to nie sport – to praktyczne przygotowanie na realne zagrożenia. Treningi koncentrują się na rozwiązaniach, które działają w stresie i pod presją.</p>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section id="grafik" class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Grafik zajęć</h2>
+      <div class="overflow-x-auto bg-gray-800 rounded-2xl shadow-lg ring-1 ring-black/10">
+        <table class="min-w-full table-auto text-left text-sm md:text-base">
+          <thead class="bg-gray-900 text-gray-300">
+            <tr class="divide-x divide-gray-700/50">
+              <th class="py-3.5 px-4 font-semibold">Dzień</th>
+              <th class="py-3.5 px-4 font-semibold">Godzina</th>
+              <th class="py-3.5 px-4 font-semibold">Grupa</th>
+              <th class="py-3.5 px-4 font-semibold">Miejsce</th>
+            </tr>
+          </thead>
+          <tbody id="schedule-body" class="divide-y divide-gray-700/60"></tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">* Terminy mogą ulec zmianie – sprawdzaj aktualności.</p>
+    </section>
+
+    <!-- PRICING -->
+    <section id="cennik" class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Cennik</h2>
+      <div class="pricing-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch"></div>
+    </section>
+
+    <!-- IKMF SYSTEM -->
+    <section class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">System szkolenia w IKMF</h2>
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-12">
+        <div class="md:w-1/2 space-y-4 text-gray-300">
+          <p>W ramach International Krav Maga Federation (IKMF) system podzielony jest na sektory: cywilny (także dla kobiet i dzieci), wojskowy, policyjny (law enforcement), ochrona VIP oraz sektor dla osób z niepełnosprawnością fizyczną.</p>
+          <h3 class="text-xl font-bold">Stopnie zaawansowania:</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Practitioner (P) – 5 poziomów</li>
+            <li>Graduate (G) – 5 poziomów</li>
+            <li>Expert (E) – 6 poziomów</li>
+          </ul>
+          <p>IKMF oferuje również liczne seminaria i szkolenia w Polsce i za granicą.</p>
+        </div>
+        <div class="md:w-1/2 w-full">
+          <img src="https://placehold.co/900x600/111827/FFFFFF?text=IKMF+Target+Map" alt="IKMF Target Map" class="rounded-2xl shadow-xl w-full object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="kontakt" class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Gdzie odbywają się zajęcia?</h2>
+      <div class="w-full h-96 rounded-2xl shadow-xl overflow-hidden ring-1 ring-black/10">
+        <!-- Google Map embed (as requested) -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2462.3223017335326!2d19.934182576412212!3d50.04102477151694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b67376460b1%3A0xd12134ab666fa8f2!2sTadeusza%20Czackiego%2011%2C%2030-501%20Krak%C3%B3w%2C%20Polska!5e1!3m2!1spl!2shu!4v1754663763461!5m2!1spl!2shu"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa lokalizacji"
+        ></iframe>
+      </div>
+      <p class="text-center mt-6 text-lg text-gray-300">Nasze główne lokalizacje to XXVIII LO przy ul. Czackiego 11 oraz JJ Sport Center przy ul. Winnickiej 40.</p>
+    </section>
+
+    <!-- INSTRUCTORS -->
+    <section class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Kim jesteśmy</h2>
+      <p class="text-center max-w-3xl mx-auto mb-10 md:mb-12 text-gray-300">Nasz zespół składa się z doświadczonych instruktorów Krav Maga z wieloletnim stażem. Dbamy o profesjonalne i bezpieczne środowisko treningowe.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <!-- Leszek -->
+        <div class="text-center space-y-3">
+          <img src="https://placehold.co/200x200/FFFFFF/000000?text=LS" alt="Instruktor Leszek Sady" class="w-36 h-36 rounded-full mx-auto border-4 border-gray-700 object-cover" />
+          <div>
+            <h3 class="text-xl font-bold">Leszek Sady</h3>
+            <p class="text-red-500">Główny Instruktor</p>
+            <p class="text-red-500">Stopień Majster 2</p>
+          </div>
+        </div>
+
+        <!-- Michał -->
+        <div class="text-center space-y-3">
+          <img src="https://placehold.co/200x200/FFFFFF/000000?text=MS" alt="Instruktor Michał Surówa" class="w-36 h-36 rounded-full mx-auto border-4 border-gray-700 object-cover" />
+          <div>
+            <h3 class="text-xl font-bold">Michał Surówa</h3>
+            <p class="text-red-500">Instruktor</p>
+          </div>
+        </div>
+
+        <!-- Kuba -->
+        <div class="text-center space-y-3">
+          <img src="images/jakub-pacholek.jpg" alt="Jakub Pachołek" class="w-36 h-36 rounded-full mx-auto border-4 border-gray-700 object-cover" />
+          <div>
+            <h3 class="text-xl font-bold">Jakub Pachołek</h3>
+            <p class="text-red-500">Instruktor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Często zadawane pytania</h2>
+      <div id="faq-container" class="max-w-3xl mx-auto"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+    <div class="max-w-7xl mx-auto px-6 space-y-4">
+      <div>
+        <h4 class="font-bold mb-2">Ważne dokumenty:</h4>
+        <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center">
+          <a href="#" class="hover:text-red-500">Regulamin</a>
+          <a href="#" class="hover:text-red-500">Formularz&nbsp;Uczestnika</a>
+          <a href="#" class="hover:text-red-500">Polityka&nbsp;Prywatności</a>
+        </div>
+      </div>
+      <p class="text-gray-500">&copy; 2024 Krav Maga Kraków. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <!-- DATA & SCRIPTS -->
+  <script>
+    // ====== DATA ======
+    const scheduleData = [
+      { day: "Poniedziałek", time: "19:00 – 20:15", group: "Średniozaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+      { day: "Wtorek", time: "19:00 – 20:15", group: "Początkująca", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+      { day: "Środa", time: "19:00 – 20:15", group: "Dorośli i młodzież 16+ (open)", location: "JJ Sport Center – ul. Winnicka 40 (sala boksu)" },
+      { day: "Środa", time: "20:15 – 21:30", group: "Zaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+      { day: "Czwartek", time: "19:00 – 20:15", group: "Początkująca", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+      { day: "Czwartek", time: "19:00 – 20:15", group: "Dorośli i młodzież 16+ (open)", location: "JJ Sport Center – ul. Winnicka 40 (sala boksu)" },
+    ];
+
+    const pricingData = [
+      { title: "Pierwsze zajęcia", price: "0&nbsp;zł", desc: "Pierwsze zajęcia próbne są darmowe!" },
+      { title: "Jednorazowe wejście", price: "50&nbsp;zł", desc: "Idealne, jeśli wpadasz od czasu do czasu." },
+      { title: "Karnet 4 wejścia", price: "130&nbsp;zł", desc: "Trenuj regularnie raz w tygodniu." },
+      { title: "Karnet 8 wejść", price: "180&nbsp;zł", desc: "Najlepsza opcja dla regularnych treningów." },
+      { title: "Zajęcia indywidualne", price: "300&nbsp;zł", desc: "Godzina treningu personalnego z instruktorem." },
+    ];
+
+    const faqs = [
+      { q: "Czy muszę się wcześniej zapisywać na zajęcia?", a: "Nie. Wystarczy przyjść 15 minut przed zajęciami i zgłosić się do instruktora." },
+      { q: "Co mam zabrać na pierwsze zajęcia?", a: "Buty na zmianę; strój do ćwiczeń (dowolny, wygodny); coś do picia; jeśli posiadasz ochraniacz strefy krocza, zabierz go – jeśli nie, można go dokupić w najbliższym czasie." },
+      { q: "Na którą grupę powinienem/powinnam przyjść?", a: `Grupa początkująca – krav maga od podstaw, dla osób które nie miały kontaktu ze sztukami walki.
+Grupa średnio‑zaawansowana – dla trenujących min. kilka miesięcy i po zaliczeniu pierwszego egzaminu.
+Grupa zaawansowana – dla osób z kilkuletnim stażem i poziomem min. P3.` },
+      { q: "Jakie ochraniacze są potrzebne?", a: `Grupa początkująca – minimum ochraniacz na krocze.
+Grupa średnio‑zaawansowana – ochraniacz na krocze + zalecany ochraniacz piszczeli.
+Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe ochraniacze według uznania.` },
+      { q: "Nie mogę trafić. Gdzie jest sala?", a: "Wejście od tyłu szkoły przez parking od strony stacji Shell. Kieruj się na małą salę gimnastyczną. Latem często ćwiczymy na zewnątrz – sprawdź aktualności na Facebooku." },
+      { q: "Gdzie mogę zaparkować?", a: "Na terenie szkoły są 2 parkingi. Poza terenem obowiązuje strefa płatnego parkowania." },
+      { q: "Czy muszę podchodzić do egzaminów? Jakie są stopnie?", a: "Egzaminy są dobrowolne. Organizujemy je raz w roku w Krakowie. Możesz też zdać na obozach lub w innych miastach. W Polsce dostępne stopnie P1‑P5 i G1‑P5." },
+      { q: "Czy mogę zrobić przerwę w trakcie treningu?", a: "Tak – każdy ćwiczy według swoich możliwości. Jeśli potrzebujesz odpoczynku lub wody, zrób przerwę i wróć, gdy będziesz gotów." },
+      { q: "Mam kontuzje / zażywam leki. Czy mogę uczestniczyć?", a: "Poinformuj instruktora przed treningiem. W razie wątpliwości skonsultuj się z lekarzem – trening można dostosować do ograniczeń." },
+      { q: "Jaki jest przedział wiekowy?", a: "Zajęcia dla młodzieży i dorosłych od 14 roku życia (bez górnej granicy). Osoby młodsze mogą być dopuszczone warunkowo za zgodą instruktora." },
+      { q: "Czy są grupy tylko dla kobiet?", a: "Regularne zajęcia są mieszane. Sporadycznie organizujemy weekendowe warsztaty tylko dla kobiet – śledź Facebooka." },
+      { q: "Czuję się zagubiony na treningu, co robić?", a: "Zawsze zadawaj pytania instruktorowi – po to jest, aby wyjaśnić techniki oraz wątpliwości." },
+      { q: "Nie mogę trenować 2× w tygodniu. Czy ma to sens?", a: "Optimum to 2 treningi tygodniowo, ale lepiej ćwiczyć rzadziej niż wcale. Każde zajęcia rozpoczynamy od powtórki – nic Cię nie ominie." },
+    ];
+
+    // ===== RENDERERS =====
+    function renderSchedule() {
+      const tbody = document.getElementById('schedule-body');
+      tbody.innerHTML = '';
+      const grouped = scheduleData.reduce((acc, item) => { (acc[item.day] ||= []).push(item); return acc; }, {});
+      Object.entries(grouped).forEach(([day, classes], dayIdx) => {
+        classes.forEach((c, idx) => {
+          const tr = document.createElement('tr');
+          if (dayIdx % 2 === 1) tr.classList.add('bg-gray-800/40');
+          tr.innerHTML = `
+            ${idx === 0 ? `<td class="py-3 px-4 font-semibold align-top" rowspan="${classes.length}">${day}</td>` : ''}
+            <td class="py-3 px-4">${c.time}</td>
+            <td class="py-3 px-4">${c.group}</td>
+            <td class="py-3 px-4">${c.location}</td>`;
+          tbody.appendChild(tr);
+        });
+      });
+      const friday = document.createElement('tr');
+      friday.className = 'bg-red-900/40 text-center font-bold';
+      friday.innerHTML = `<td class="py-3 px-4" colspan="4">Piątek – brak zajęć</td>`;
+      tbody.appendChild(friday);
+    }
+
+    function renderPricing() {
+      const container = document.querySelector('#cennik .pricing-grid');
+      container.innerHTML = '';
+      pricingData.forEach((p) => {
+        const card = document.createElement('div');
+        card.className = 'bg-gray-800 border border-gray-700 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out p-6 flex flex-col text-center';
+        card.innerHTML = `
+          <div class="flex-grow flex flex-col">
+            <h3 class="text-2xl font-bold mb-2">${p.title}</h3>
+            <p class="text-4xl font-black text-red-500 mb-4">${p.price}</p>
+            <p class="text-gray-400 mb-2 flex-grow">${p.desc}</p>
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderFAQ() {
+      const faqWrap = document.getElementById('faq-container');
+      faqWrap.innerHTML = '';
+      faqs.forEach(({ q, a }) => {
+        const details = document.createElement('details');
+        details.className = 'faq-item';
+        details.innerHTML = `
+          <summary class="faq-question">
+            <span>${q}</span>
+            <svg class="plus-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12" /></svg>
+          </summary>
+          <div class="faq-answer-content">${a}</div>`;
+        faqWrap.appendChild(details);
+      });
+    }
+
+    function mobileMenuToggle() {
+      const btn = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    function initFadeIn() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('appear'); observer.unobserve(e.target); } });
+      }, { threshold: .15 });
+      document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      mobileMenuToggle();
+      renderSchedule();
+      renderPricing();
+      renderFAQ();
+      initFadeIn();
+    });
+  </script>
 </body>
 </html>
