@@ -19,17 +19,21 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: "Roboto", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      background: #000;
+      background-color: #000;
+      background-image: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.15), hsla(0,0%,100%,0));
       color: #e5e7eb;
     }
-    a { transition: color .2s ease; }
+    a, button { transition: all .3s ease-in-out; }
 
     /* Anchor offset for sticky header */
-    .anchor-section { scroll-margin-top: calc(var(--header-h) + 16px); }
+    .anchor-section { scroll-margin-top: calc(var(--header-h) + 32px); }
 
     /* ===== Hero ===== */
     .hero-bg {
       background: url("images/tlo.jpg") center / cover no-repeat;
+    }
+    .cta-glow {
+      box-shadow: 0 0 15px rgba(225, 29, 72, 0.4), 0 0 25px rgba(225, 29, 72, 0.2);
     }
 
     /* ===== Utility Animations ===== */
@@ -37,29 +41,57 @@
     .fade-in.appear { opacity: 1; transform: translateY(0); }
 
     /* ===== FAQ ===== */
-    details.faq-item { background:#1f2937; border-radius: .75rem; margin-bottom: 1rem; overflow: hidden; }
-    summary.faq-question { list-style:none; display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; font-weight:700; font-size:1.125rem; cursor:pointer; user-select:none; transition: background .2s; }
-    summary.faq-question:hover { background: rgba(225,29,72,.08); }
-    summary::-webkit-details-marker{ display:none; }
-    .plus-icon{ width:1.5rem; height:1.5rem; transition: transform .2s; }
-    details[open] .plus-icon{ transform: rotate(45deg); }
-    .faq-answer-content{ padding:1rem 1.25rem; background:#374151; color:#d1d5db; border-top:1px solid #4b5563; white-space:pre-line; }
+    details.faq-item {
+      background: #1f2937;
+      border-radius: .75rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border: 1px solid #374151;
+      transition: background .2s;
+    }
+    details.faq-item:hover { background: #293548; }
+    summary.faq-question {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .plus-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      transition: transform .3s ease;
+      color: #ef4444;
+    }
+    details[open] .plus-icon { transform: rotate(135deg); }
+    .faq-answer-content {
+      padding: 1rem 1.25rem;
+      background: #111827;
+      color: #d1d5db;
+      border-top: 1px solid #374151;
+      white-space: pre-line;
+    }
   </style>
 </head>
 <body>
   <!-- NAVIGATION -->
-  <nav class="bg-gray-900/70 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20" style="height:var(--header-h)">
+  <nav class="bg-gray-900/70 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800" style="height:var(--header-h)">
     <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
-      <a href="#" class="text-xl md:text-2xl font-black tracking-wide">KRAV MAGA KRAKÓW</a>
+      <a href="#" class="text-2xl md:text-4xl font-black tracking-wide">KRAV MAGA KRAKÓW</a>
       <!-- Desktop links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <div class="hidden md:flex items-center gap-8 text-lg font-medium">
         <a href="#grafik" class="hover:text-red-500">Grafik</a>
         <a href="#cennik" class="hover:text-red-500">Cennik</a>
         <a href="#o-nas" class="hover:text-red-500">O&nbsp;nas</a>
         <a href="#faq" class="hover:text-red-500">FAQ</a>
         <a href="#kontakt" class="hover:text-red-500">Kontakt</a>
       </div>
-      <!-- Burger -->
+      <!-- Burger Menu remains unchanged -->
       <button id="mobile-menu-button" class="md:hidden" aria-label="Otwórz menu" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
@@ -67,7 +99,7 @@
       </button>
     </div>
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 bg-gray-900/90 backdrop-blur-md">
       <a href="#grafik" class="block hover:text-red-500">Grafik</a>
       <a href="#cennik" class="block hover:text-red-500">Cennik</a>
       <a href="#o-nas" class="block hover:text-red-500">O&nbsp;nas</a>
@@ -83,7 +115,7 @@
       <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-tight">Krav Maga Kraków</h1>
       <p class="text-base md:text-2xl mt-4 md:mt-6 mb-8 md:mb-10 text-gray-300">Efektywny system samoobrony dla każdego. Dołącz do nas i zyskaj pewność siebie.</p>
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#cennik" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg">Pierwsze zajęcia GRATIS!</a>
+        <a href="#cennik" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg cta-glow">Pierwsze zajęcia GRATIS!</a>
         <a href="#grafik" class="inline-block bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg">Zobacz grafik</a>
       </div>
     </div>
@@ -92,7 +124,7 @@
   <main class="max-w-7xl mx-auto px-6 py-16 md:py-20 space-y-24 md:space-y-32">
     <!-- ABOUT -->
     <section id="o-nas" class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Czym jest Krav Maga?</h2>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Czym jest Krav Maga?</h2>
       <div class="prose prose-invert mx-auto max-w-3xl">
         <p>Krav Maga to izraelski system samoobrony i walki wręcz, opracowany z myślą o szybkim szkoleniu żołnierzy. Dziś wykorzystywany jest przez wojsko, policję i służby specjalne na całym świecie. Jego skuteczność opiera się na prostych, intuicyjnych ruchach i realistycznych scenariuszach zagrożeń.</p>
         <p>Nasze treningi są dostosowane do każdego, bez względu na wiek czy kondycję fizyczną. Już po kilku zajęciach nauczysz się, jak reagować w sytuacjach niebezpiecznych. Uczymy także, jak wykorzystać przedmioty codziennego użytku do obrony własnej.</p>
@@ -102,10 +134,10 @@
 
     <!-- SCHEDULE -->
     <section id="grafik" class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Grafik zajęć</h2>
-      <div class="overflow-x-auto bg-gray-800 rounded-2xl shadow-lg ring-1 ring-black/10">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Grafik zajęć</h2>
+      <div class="overflow-x-auto bg-gray-800/50 rounded-2xl shadow-lg ring-1 ring-white/10">
         <table class="min-w-full table-auto text-left text-sm md:text-base">
-          <thead class="bg-gray-900 text-gray-300">
+          <thead class="bg-gray-900/70 text-gray-300">
             <tr class="divide-x divide-gray-700/50">
               <th class="py-3.5 px-4 font-semibold">Dzień</th>
               <th class="py-3.5 px-4 font-semibold">Godzina</th>
@@ -121,34 +153,35 @@
 
     <!-- PRICING -->
     <section id="cennik" class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Cennik</h2>
-      <div class="pricing-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch"></div>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Cennik</h2>
+      <div class="pricing-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 items-stretch"></div>
+      <p class="text-center text-gray-400 mt-6">* Karnet jest ważny 2 miesiące od daty zakupu.</p>
     </section>
 
     <!-- IKMF SYSTEM -->
     <section class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">System szkolenia w IKMF</h2>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">System szkolenia w IKMF</h2>
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-12">
         <div class="md:w-1/2 space-y-4 text-gray-300">
           <p>W ramach International Krav Maga Federation (IKMF) system podzielony jest na sektory: cywilny (także dla kobiet i dzieci), wojskowy, policyjny (law enforcement), ochrona VIP oraz sektor dla osób z niepełnosprawnością fizyczną.</p>
-          <h3 class="text-xl font-bold">Stopnie zaawansowania:</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Practitioner (P) – 5 poziomów</li>
-            <li>Graduate (G) – 5 poziomów</li>
-            <li>Expert (E) – 6 poziomów</li>
+          <h3 class="text-xl font-bold text-white">Stopnie zaawansowania:</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center"><img src="images/ikmf_patch_p5_1_1.jpg" alt="Poziom Practitioner" class="w-10 h-10 mr-2 flex-shrink-0 rounded-full object-cover">Practitioner (P) – 5 poziomów</li>
+            <li class="flex items-center"><img src="https://placehold.co/24x24/ef4444/ffffff?text=G" alt="Poziom Graduate" class="w-5 h-5 mr-2 flex-shrink-0 rounded-full">Graduate (G) – 5 poziomów</li>
+            <li class="flex items-center"><img src="https://placehold.co/24x24/ef4444/ffffff?text=E" alt="Poziom Expert" class="w-5 h-5 mr-2 flex-shrink-0 rounded-full">Expert (E) – 6 poziomów</li>
           </ul>
           <p>IKMF oferuje również liczne seminaria i szkolenia w Polsce i za granicą.</p>
         </div>
         <div class="md:w-1/2 w-full">
-          <img src="https://placehold.co/900x600/111827/FFFFFF?text=IKMF+Target+Map" alt="IKMF Target Map" class="rounded-2xl shadow-xl w-full object-cover" />
+          <img src="https://placehold.co/900x600/111827/FFFFFF?text=IKMF+Target+Map" alt="IKMF Target Map" class="rounded-2xl shadow-xl w-full object-cover ring-1 ring-white/10" />
         </div>
       </div>
     </section>
 
     <!-- LOCATION -->
     <section id="kontakt" class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Gdzie odbywają się zajęcia?</h2>
-      <div class="w-full h-96 rounded-2xl shadow-xl overflow-hidden ring-1 ring-black/10">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Gdzie odbywają się zajęcia?</h2>
+      <div class="w-full h-96 rounded-2xl shadow-xl overflow-hidden ring-1 ring-white/10">
         <!-- Google Map embed (as requested) -->
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2462.3223017335326!2d19.934182576412212!3d50.04102477151694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b67376460b1%3A0xd12134ab666fa8f2!2sTadeusza%20Czackiego%2011%2C%2030-501%20Krak%C3%B3w%2C%20Polska!5e1!3m2!1spl!2shu!4v1754663763461!5m2!1spl!2shu"
@@ -159,52 +192,52 @@
     </section>
 
     <!-- INSTRUCTORS -->
-    <section class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Kim jesteśmy</h2>
+    <section id="instruktorzy" class="anchor-section fade-in">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Kim jesteśmy</h2>
       <p class="text-center max-w-3xl mx-auto mb-10 md:mb-12 text-gray-300">Nasz zespół składa się z doświadczonych instruktorów Krav Maga z wieloletnim stażem. Dbamy o profesjonalne i bezpieczne środowisko treningowe.</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         <!-- Leszek -->
-        <div class="text-center space-y-3">
-          <img src="https://placehold.co/200x200/FFFFFF/000000?text=LS" alt="Instruktor Leszek Sady" class="w-36 h-36 rounded-full mx-auto border-4 border-gray-700 object-cover" />
+        <a href="leszek.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
+          <img src="images/leszek.jpg" alt="Instruktor Leszek Sady" class="w-36 h-36 rounded-full mx-auto border-4 border-red-500 object-cover" />
           <div>
             <h3 class="text-xl font-bold">Leszek Sady</h3>
             <p class="text-red-500">Główny Instruktor</p>
             <p class="text-red-500">Stopień Majster 2</p>
           </div>
-        </div>
+        </a>
 
         <!-- Michał -->
-        <div class="text-center space-y-3">
-          <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-gray-700 mx-auto">
+        <a href="michal.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
+          <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-red-500 mx-auto">
             <img src="images/zdj michała na strone.jpg" alt="Instruktor Michał Surówa" class="object-cover object-center w-full h-full" />
           </div>
           <div>
             <h3 class="text-xl font-bold">Michał Surówa</h3>
-            <p class="text-red-500">Instruktor</p>
+            <p class="text-red-500">Instruktor Fitness</p>
           </div>
-        </div>
+        </a>
 
         <!-- Kuba -->
-        <div class="text-center space-y-3">
-          <img src="images/jakub-pacholek.jpg" alt="Jakub Pachołek" class="w-36 h-36 rounded-full mx-auto border-4 border-gray-700 object-cover" />
+        <a href="kuba.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
+          <img src="images/jakub-pacholek.jpg" alt="Jakub Pachołek" class="w-36 h-36 rounded-full mx-auto border-4 border-red-500 object-cover" />
           <div>
             <h3 class="text-xl font-bold">Pakub Jachołek</h3>
             <p class="text-red-500">Instruktor I klasy(szkoły podstawowej)</p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
     <!-- FAQ -->
     <section id="faq" class="anchor-section fade-in">
-      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10">Często zadawane pytania</h2>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Często zadawane pytania</h2>
       <div id="faq-container" class="max-w-3xl mx-auto"></div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+  <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800">
     <div class="max-w-7xl mx-auto px-6 space-y-4">
       <div>
         <h4 class="font-bold mb-2">Ważne dokumenty:</h4>
@@ -232,10 +265,10 @@
 
     const pricingData = [
       { title: "Pierwsze zajęcia", price: "0&nbsp;zł", desc: "Pierwsze zajęcia próbne są darmowe!" },
-      { title: "Jednorazowe wejście", price: "50&nbsp;zł", desc: "Idealne, jeśli wpadasz od czasu do czasu." },
-      { title: "Karnet 4 wejścia", price: "130&nbsp;zł", desc: "Trenuj regularnie raz w tygodniu." },
-      { title: "Karnet 8 wejść", price: "180&nbsp;zł", desc: "Najlepsza opcja dla regularnych treningów." },
-      { title: "Zajęcia indywidualne", price: "300&nbsp;zł", desc: "Godzina treningu personalnego z instruktorem." },
+      { title: "Jednorazowe<br>wejście", price: "50&nbsp;zł", desc: "Idealne, jeśli wpadasz od czasu do czasu." },
+      { title: "Karnet 4<br>wejścia", price: "130&nbsp;zł", desc: "Trenuj regularnie raz w tygodniu." },
+      { title: "Karnet 8<br>wejść", price: "180&nbsp;zł", desc: "Najlepsza opcja dla regularnych treningów." },
+      { title: "Zajęcia<br>indywidualne", price: "300&nbsp;zł", desc: "Godzina treningu personalnego z instruktorem." },
     ];
 
     const faqs = [
@@ -284,15 +317,22 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
     function renderPricing() {
       const container = document.querySelector('#cennik .pricing-grid');
       container.innerHTML = '';
-      pricingData.forEach((p) => {
+      pricingData.forEach((p, index) => {
         const card = document.createElement('div');
-        card.className = 'bg-gray-800 border border-gray-700 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out p-6 flex flex-col text-center';
+        let specialClass = '';
+        if (index === 0) {
+          specialClass = 'bg-red-900/30 border-red-500 ring-2 ring-red-500';
+        } else {
+          specialClass = 'bg-gray-800/50 border-gray-700';
+        }
+        card.className = `flex flex-col justify-between h-full rounded-2xl shadow-lg hover:shadow-red-500/20 hover:-translate-y-1.5 transition-all duration-300 ease-out p-6 text-center border ${specialClass}`;
         card.innerHTML = `
-          <div class="flex-grow flex flex-col">
-            <h3 class="text-2xl font-bold mb-2">${p.title}</h3>
+          <div>
+            <h3 class="text-2xl font-bold mb-2 h-16 flex items-center justify-center">${p.title}</h3>
             <p class="text-4xl font-black text-red-500 mb-4">${p.price}</p>
-            <p class="text-gray-400 mb-2 flex-grow">${p.desc}</p>
-          </div>`;
+          </div>
+          <p class="text-gray-400 mt-4">${p.desc}</p>
+        `;
         container.appendChild(card);
       });
     }
