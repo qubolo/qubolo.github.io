@@ -30,7 +30,7 @@
 
     /* ===== Hero ===== */
     .hero-bg {
-      background: url("images/tlo.jpg") center / cover no-repeat;
+      background: url("images\DSC_0196_proc.jpg") center / cover no-repeat;
     }
     .cta-glow {
       box-shadow: 0 0 15px rgba(225, 29, 72, 0.4), 0 0 25px rgba(225, 29, 72, 0.2);
@@ -138,6 +138,13 @@
     <!-- SCHEDULE -->
     <section id="grafik" class="anchor-section fade-in">
       <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-8 md:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Grafik zajęć</h2>
+      <div class="flex justify-end mb-4">
+        <select id="location-select" class="bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2">
+          <option value="normal">Normal</option>
+          <option value="zacheta">Zachęta</option>
+          <option value="kopanka">Kopanka</option>
+        </select>
+      </div>
       <div class="overflow-x-auto bg-gray-800/50 rounded-2xl shadow-lg ring-1 ring-white/10">
         <table class="min-w-full table-auto text-left text-sm md:text-base">
           <thead class="bg-gray-900/70 text-gray-300">
@@ -152,6 +159,10 @@
         </table>
       </div>
       <p class="text-xs text-gray-400 mt-3">* Terminy mogą ulec zmianie – sprawdzaj aktualności.</p>
+      <p class="text-center text-gray-400 mt-4">
+        Mamy również drugą sekcję na ulicy Winnickiej w JJ Sport Center. Sprawdź grafik:
+        <a href="https://powerfighthouse.pl/grafik/" class="text-red-500 hover:underline" target="_blank">Power Fight House Grafik</a>
+      </p>
     </section>
 
     <!-- PRICING -->
@@ -181,8 +192,8 @@
           <p>W ramach International Krav Maga Federation (IKMF) system podzielony jest na sektory: cywilny (także dla kobiet i dzieci), wojskowy, policyjny (law enforcement), ochrona VIP oraz sektor dla osób z niepełnosprawnością fizyczną.</p>
           <h3 class="text-xl font-bold text-white">Stopnie zaawansowania:</h3>
           <ul class="space-y-2">
-            <li class="flex items-center"><img src="images/ikmf_patch_p5_1_1.jpg" alt="Poziom Practitioner" class="w-10 h-10 mr-2 flex-shrink-0 rounded-full object-cover">Practitioner (P) – 5 poziomów</li>
-            <li class="flex items-center"><img src="https://placehold.co/24x24/ef4444/ffffff?text=G" alt="Poziom Graduate" class="w-5 h-5 mr-2 flex-shrink-0 rounded-full">Graduate (G) – 5 poziomów</li>
+            <li class="flex items-center"><img src="images/ikmf_patch_p5_1_1.jpg" alt="Poziom Practitioner" class="w-14 h-18 mr-2 flex-shrink-0 object-cover">Practitioner (P) – 5 poziomów</li>
+            <li class="flex items-center"><img src="images\ikmf_patch_g5_1.jpg" alt="Poziom Graduate" class="w-14 h-18 mr-2 flex-shrink-0 ">Graduate (G) – 5 poziomów</li>
             <li class="flex items-center"><img src="https://placehold.co/24x24/ef4444/ffffff?text=E" alt="Poziom Expert" class="w-5 h-5 mr-2 flex-shrink-0 rounded-full">Expert (E) – 6 poziomów</li>
           </ul>
           <p>IKMF oferuje również liczne seminaria i szkolenia w Polsce i za granicą.</p>
@@ -214,31 +225,53 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         <!-- Leszek -->
         <a href="leszek.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
-          <img src="images/leszek.jpg" alt="Instruktor Leszek Sady" class="w-36 h-36 rounded-full mx-auto border-4 border-red-500 object-cover" />
+          <div class="relative w-36 h-36 mx-auto">
+            <img src="images/leszek.jpg" alt="Instruktor Leszek Sady" class="w-full h-full rounded-full border-4 border-red-500 object-cover" />
+            <img src="images\e2 transparent.png" alt="G3" class="absolute bottom-0 right-0 w-10 h-10" />
+          </div>
           <div>
             <h3 class="text-xl font-bold">Leszek Sady</h3>
             <p class="text-red-500">Główny Instruktor</p>
-            <p class="text-red-500">Stopień Majster 2</p>
+            <p class="text-red-500">Stopień Expert 1</p>
+          </div>
+        </a>
+        <!-- Michał -->
+        <a href="michal.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
+          <div class="relative w-36 h-36 mx-auto">
+            <img src="images/zdj michała na strone.jpg" alt="Asystent Michał Suruło" class="w-full h-full rounded-full border-4 border-red-500 object-cover" />
+            <img src="images/ikmf_patch_g1_1.jpg" alt="G3" class="absolute bottom-0 right-0 w-10 h-10" />
+          </div>
+          <div>
+            <h3 class="text-xl font-bold">Michał Suruło</h3>
+            <p class="text-red-500">Asystent instruktora</p>
+            <p class="text-red-500">Stopień Graduate 1</p>
           </div>
         </a>
 
-        <!-- Michał -->
-        <a href="michal.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
-          <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-red-500 mx-auto">
-            <img src="images/zdj michała na strone.jpg" alt="Instruktor Michał Surówa" class="object-cover object-center w-full h-full" />
+        <!-- Amelia -->
+        <a href="amelia.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
+          <div class="relative w-36 h-36 mx-auto">
+            <img src="images/jakub-pacholek.jpg" alt="Amelia Pechta" class="w-full h-full rounded-full border-4 border-red-500 object-cover" />
+            <img src="images/ikmf_patch_g1_1.jpg" alt="G1" class="absolute bottom-0 right-0 w-10 h-10" />
           </div>
           <div>
-            <h3 class="text-xl font-bold">Michał Surówa</h3>
-            <p class="text-red-500">Instruktor Fitness</p>
+            <h3 class="text-xl font-bold">Amelia Pechta</h3>
+            <p class="text-red-500">Asystentka instruktora</p>
+            <p class="text-red-500">Stopień Graduate 1</p>
           </div>
         </a>
+
 
         <!-- Kuba -->
         <a href="kuba.html" class="block text-center space-y-3 bg-gray-800/50 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 hover:bg-gray-700/70">
-          <img src="images/jakub-pacholek.jpg" alt="Jakub Pachołek" class="w-36 h-36 rounded-full mx-auto border-4 border-red-500 object-cover" />
+          <div class="relative w-36 h-36 mx-auto">
+            <img src="images/jakub-pacholek.jpg" alt="Jakub Pachołek" class="w-full h-full rounded-full border-4 border-red-500 object-cover" />
+            <img src="images/ikmf_patch_g3_1.jpg" alt="G3" class="absolute bottom-0 right-0 w-10 h-10" />
+          </div>
           <div>
-            <h3 class="text-xl font-bold">Pakub Jachołek</h3>
-            <p class="text-red-500">Instruktor I klasy(szkoły podstawowej)</p>
+            <h3 class="text-xl font-bold">Jakub Pachołek</h3>
+            <p class="text-red-500">Asystent instruktora</p>
+            <p class="text-red-500">Stopień Graduate 3</p>
           </div>
         </a>
       </div>
@@ -269,13 +302,23 @@
   <!-- DATA & SCRIPTS -->
   <script>
     // ====== DATA ======
-    const scheduleData = [
-      { day: "Poniedziałek", time: "19:00 – 20:15", group: "Średniozaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
-      { day: "Wtorek", time: "19:00 – 20:15", group: "Początkująca", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
-      { day: "Środa", time: "19:00 – 20:15", group: "Średniozaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
-      { day: "Środa", time: "20:15 – 21:30", group: "Zaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
-      { day: "Czwartek", time: "19:00 – 20:15", group: "Początkująca", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
-    ];
+    const scheduleData = {
+      normal: [
+        { day: "Poniedziałek", time: "19:00 – 20:15", group: "Średniozaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+        { day: "Wtorek", time: "19:00 – 20:15", group: "Początkująca", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+        { day: "Środa", time: "19:00 – 20:15", group: "Średniozaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+        { day: "Środa", time: "20:15 – 21:30", group: "Zaawansowana", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+        { day: "Czwartek", time: "19:00 – 20:15", group: "Początkująca", location: "XXVIII LO – ul. Czackiego 11 (Mała sala gimnastyczna)" },
+      ],
+      zacheta: [
+        { day: "Poniedziałek", time: "18:00 - 19:00", group: "Dzieci", location: "Zachęta" },
+        { day: "Środa", time: "18:00 - 19:00", group: "Dzieci", location: "Zachęta" },
+      ],
+      kopanka: [
+        { day: "Wtorek", time: "20:30 - 22:00", group: "Dorośli", location: "Kopanka" },
+        { day: "Czwartek", time: "20:30 - 22:00", group: "Dorośli", location: "Kopanka" },
+      ]
+    };
 
     const pricingData = [
       { title: "Pierwsze zajęcia", price: "0&nbsp;zł", desc: "Pierwsze zajęcia próbne są darmowe!" },
@@ -306,10 +349,11 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
     ];
 
     // ===== RENDERERS =====
-    function renderSchedule() {
+    function renderSchedule(location = 'normal') {
       const tbody = document.getElementById('schedule-body');
       tbody.innerHTML = '';
-      const grouped = scheduleData.reduce((acc, item) => { (acc[item.day] ||= []).push(item); return acc; }, {});
+      const data = scheduleData[location];
+      const grouped = data.reduce((acc, item) => { (acc[item.day] ||= []).push(item); return acc; }, {});
       Object.entries(grouped).forEach(([day, classes], dayIdx) => {
         classes.forEach((c, idx) => {
           const tr = document.createElement('tr');
@@ -377,7 +421,7 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
     }
 
     function initFadeIn() {
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver((entries) => { 
         entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('appear'); observer.unobserve(e.target); } });
       }, { threshold: .15 });
       document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
@@ -385,10 +429,15 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
 
     document.addEventListener('DOMContentLoaded', () => {
       mobileMenuToggle();
-      renderSchedule();
       renderPricing();
       renderFAQ();
       initFadeIn();
+
+      const locationSelect = document.getElementById('location-select');
+      locationSelect.addEventListener('change', (event) => {
+        renderSchedule(event.target.value);
+      });
+      renderSchedule(); // initial render for 'normal'
     });
   </script>
 </body>
