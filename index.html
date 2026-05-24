@@ -20,17 +20,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     /* ===== Global ===== */
     :root { --header-h: 72px; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "Roboto", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      background-color: #000;
-      background-image: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.15), hsla(0,0%,100%,0));
-      color: #e5e7eb;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      background-color: #09090b; /* A darker, slightly warmer black */
+      background-image: radial-gradient(ellipse 80% 80% at 50% -20%,rgba(120,119,198,0.1), hsla(0,0%,100%,0));
+      color: #fafafa;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Montserrat', sans-serif;
     }
     a, button { transition: all .3s ease-in-out; }
 
@@ -152,12 +155,12 @@
 
   <!-- HERO -->
   <header class="hero-bg relative h-[78vh] md:h-[85vh] grid place-items-center">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative z-10 text-center px-6 fade-in max-w-3xl">
-      <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight leading-tight">Krav Maga Kraków</h1>
-      <p class="text-base md:text-2xl mt-4 md:mt-6 mb-8 md:mb-10 text-gray-300">Efektywny system samoobrony dla każdego. Dołącz do nas i zyskaj pewność siebie.</p>
-      <div class="mt-8 flex justify-center items-center gap-8">
-        <img src="images/ikmf_transparent_weiss.png" alt="IKMF Logo" class="h-24">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-[#09090b]"></div>
+    <div class="relative z-10 text-center px-6 fade-in max-w-4xl">
+      <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 drop-shadow-sm font-heading">Krav Maga Kraków</h1>
+      <p class="text-lg md:text-2xl mt-4 md:mt-6 mb-8 md:mb-10 text-gray-300 font-medium">Efektywny system samoobrony dla każdego. Dołącz do nas i zyskaj pewność siebie.</p>
+      <div class="mt-8 flex justify-center items-center gap-8 drop-shadow-xl">
+        <img src="images/ikmf_transparent_weiss.png" alt="IKMF Logo" class="h-28 opacity-90 hover:opacity-100 transition-opacity">
       </div>
     </div>
   </header>
@@ -485,12 +488,13 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
       Object.entries(grouped).forEach(([day, classes], dayIdx) => {
         classes.forEach((c, idx) => {
           const tr = document.createElement('tr');
-          if (dayIdx % 2 === 1) tr.classList.add('bg-gray-800/40');
+          if (dayIdx % 2 === 1) tr.classList.add('bg-gray-800/20');
+          tr.classList.add('hover:bg-gray-700/30', 'transition-colors');
           tr.innerHTML = `
-            ${idx === 0 ? `<td class="py-3 px-4 font-semibold align-top" rowspan="${classes.length}">${day}</td>` : ''}
-            <td class="py-3 px-4">${c.time}</td>
-            <td class="py-3 px-4">${c.group}</td>
-            <td class="py-3 px-4">${c.location}</td>`;
+            ${idx === 0 ? `<td class="py-4 px-4 font-semibold align-top font-heading" rowspan="${classes.length}">${day}</td>` : ''}
+            <td class="py-4 px-4 font-medium text-gray-300">${c.time}</td>
+            <td class="py-4 px-4 text-red-400 font-medium">${c.group}</td>
+            <td class="py-4 px-4 text-gray-400">${c.location}</td>`;
           tbody.appendChild(tr);
         });
       });
@@ -504,17 +508,17 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
         const card = document.createElement('div');
         let specialClass = '';
         if (index === 0) {
-          specialClass = 'bg-red-900/30 border-red-500 ring-2 ring-red-500';
+          specialClass = 'bg-red-900/20 border-red-500/50 shadow-red-500/10 ring-1 ring-red-500/50';
         } else {
-          specialClass = 'bg-gray-800/50 border-gray-700';
+          specialClass = 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/60';
         }
-        card.className = `flex flex-col justify-between h-full rounded-2xl shadow-lg hover:shadow-red-500/20 hover:-translate-y-1.5 transition-all duration-300 ease-out p-6 text-center border ${specialClass}`;
+        card.className = `flex flex-col justify-between h-full rounded-2xl shadow-lg hover:shadow-xl hover:shadow-red-500/20 hover:-translate-y-1.5 transition-all duration-300 ease-out p-6 text-center border backdrop-blur-sm ${specialClass}`;
         card.innerHTML = `
           <div>
-            <h3 class="text-2xl font-bold mb-2 h-16 flex items-center justify-center">${p.title}</h3>
-            <p class="text-4xl font-black text-red-500 mb-4">${p.price}</p>
+            <h3 class="text-2xl font-bold mb-2 h-16 flex items-center justify-center font-heading tracking-tight">${p.title}</h3>
+            <p class="text-4xl font-black text-red-500 mb-4 font-heading">${p.price}</p>
           </div>
-          <p class="text-gray-400 mt-4">${p.desc}</p>
+          <p class="text-gray-400 mt-4 leading-relaxed">${p.desc}</p>
         `;
         container.appendChild(card);
       });
@@ -525,13 +529,13 @@ Grupa zaawansowana – krocze, piszczele, szczęka, rękawice 16 oz. Dodatkowe o
       faqWrap.innerHTML = '';
       faqs.forEach(({ q, a }) => {
         const details = document.createElement('details');
-        details.className = 'faq-item';
+        details.className = 'faq-item group';
         details.innerHTML = `
-          <summary class="faq-question">
-            <span>${q}</span>
-            <svg class="plus-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12" /></svg>
+          <summary class="faq-question group-hover:text-red-400 transition-colors">
+            <span class="font-heading">${q}</span>
+            <svg class="plus-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12" /></svg>
           </summary>
-          <div class="faq-answer-content">${a}</div>`;
+          <div class="faq-answer-content leading-relaxed text-gray-300">${a}</div>`;
         faqWrap.appendChild(details);
       });
     }
